@@ -33,7 +33,7 @@ Command line are important because not all server have a GUI (Graphical User Int
 - `rm` - remove file
 - `echo` - repeat input
 
-### Shells
+## Shells
 
 Is the one that included with a lot of UNIX systems by default but it basically allows you to run command lines, and run a lot of the basic systems that come along with UNIX.
 
@@ -54,7 +54,6 @@ It serves content and also respond request, it serves something back.
 > node simpleServer.js 
 Server started! listening on port 8080
 ```
-
 
 ## SSH
 
@@ -101,7 +100,7 @@ Create and edit index.html
 sudo vi /var/www/html/index.html
 ```
 
-### Node.js
+## Node.js
 
 Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that runs on the V8 engine and executes JavaScript code outside a web browser.
 
@@ -117,7 +116,7 @@ Install git
 sudo apt install git
 ```
 
-### Application Setup
+## Application Setup
 
 Change ownership of the www directory to the current user
 
@@ -172,3 +171,112 @@ Run application
 ```
 node app.js
 ```
+
+## Application Setup
+
+Change ownership of the www directory to the current user
+
+```
+sudo chown -R $USER:$USER /var/www
+```
+
+Create application directory
+
+```
+mkdir /var/www/app
+```
+
+Move into app directory and initialize empty git repo
+
+```
+cd /var/www/app && git init
+```
+
+Create directories
+
+```
+mkdir -p ui/js ui/html ui/css
+```
+
+Create empty app file
+
+```
+touch app.js
+```
+
+Initialize project
+
+```
+npm init
+```
+
+install express
+
+```
+npm i express --save
+```
+
+edit app
+
+```
+vi app.js
+```
+
+Run application
+
+```
+node app.js
+```
+
+## Proxy Passing Traffic
+
+Edit nginx config
+
+```
+$ sudo vi /etc/nginx/sites-available/default
+location / {
+  proxy_pass http://127.0.0.1:3000/;
+}
+```
+
+## Process Manager
+
+a process manager is a way to :
+
+- Keeps your application running
+- Handles errors and restarts
+- Handle logging and clustering
+
+Install PM2
+
+```
+sudo npm i -g pm2
+```
+
+Start PM2
+
+```
+pm2 start app.js
+```
+
+Setup auto restart
+
+```
+pm2 save
+pm2 startup
+```
+
+## Version Control with Git
+
+Record changes to a file system to preserve the history. Some example of version control :
+
+- Git
+- Subversion
+- Mercurial
+
+## Further Exploration
+
+Install Fail2ban
+> <https://www.techrepublic.com/article/how-to-install-fail2ban-on-ubuntu-server-18-04/>
+ExpressJS performance tips
+> <http://expressjs.com/en/advanced/best-practice-performance.html>
