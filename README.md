@@ -172,62 +172,6 @@ Run application
 node app.js
 ```
 
-## Application Setup
-
-Change ownership of the www directory to the current user
-
-```
-sudo chown -R $USER:$USER /var/www
-```
-
-Create application directory
-
-```
-mkdir /var/www/app
-```
-
-Move into app directory and initialize empty git repo
-
-```
-cd /var/www/app && git init
-```
-
-Create directories
-
-```
-mkdir -p ui/js ui/html ui/css
-```
-
-Create empty app file
-
-```
-touch app.js
-```
-
-Initialize project
-
-```
-npm init
-```
-
-install express
-
-```
-npm i express --save
-```
-
-edit app
-
-```
-vi app.js
-```
-
-Run application
-
-```
-node app.js
-```
-
 ## Proxy Passing Traffic
 
 Edit nginx config
@@ -273,10 +217,3 @@ Record changes to a file system to preserve the history. Some example of version
 - Git
 - Subversion
 - Mercurial
-
-## Further Exploration
-
-Install Fail2ban
-> <https://www.techrepublic.com/article/how-to-install-fail2ban-on-ubuntu-server-18-04/>
-ExpressJS performance tips
-> <http://expressjs.com/en/advanced/best-practice-performance.html>
